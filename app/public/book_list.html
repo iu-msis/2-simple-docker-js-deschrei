@@ -33,7 +33,7 @@
 <div>
 <h2>Book List</h2>
 
-<table class="table">
+<table class="table" id="booktable">
   <thead>
     <tr>
       <th scope="col">Title</th>
@@ -129,6 +129,11 @@
 
 
   </div>
+  <script src="js/tablesort.min.js"></script>
+  <script>
+    //Tablesort plugin from http://tristen.ca/tablesort/demo/ //
+    new Tablesort(document.getElementById('booktable'));
+  </script>
 </body>
 <footer id="footer">
   <h6>Created by deschrei </h6>
