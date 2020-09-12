@@ -1,0 +1,57 @@
+h5{
+
+}
+
+body{
+  background-color: #a3a9ac;
+  color: white;
+
+}
+
+header, footer{
+  background-color: #4d1979;
+
+}
+
+h2, h6{
+  text-align: center;
+}
+
+.profile {
+  border: solid white;
+  border-radius: 25px;
+  padding: 15px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+
+}
+
+a{
+  color: #4d1979;
+}
+
+a:hover {
+  color:red;
+}
+
+#footer{
+  position:absolute;
+  width: 100%;
+  height: 25px;
+  margin-top: 50px;
+
+}
+
+img:hover{
+  transform: scale(2);
+}
+
+.resize{
+  width: 50%;
+}
+
+.left{
+  text-align: left;
+}
