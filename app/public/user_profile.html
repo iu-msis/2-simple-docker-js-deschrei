@@ -32,19 +32,21 @@
 
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 profile">
+  <div id="userProfle">
 
-  <img src="img/Smith_Andre_Profile_Pic.jpg" alt = "Profile Picture"> </img>
-  <h6 class="right">source:https://randomuser.me </h6>
-  <h5> Name: Andre Smith
-    <p> </p>
-      Country of Origin: USA
-    <p> </p>
-      Birthdate: 05/03/1977
-    <p> </p>
-      Age: 43
-    <p> </p>
-      Email Address: <a href="mailto:andre.smith@example.com"> andre.smith@example.com </a>
-    <p> </p>
+    <img v-bind:src="userPicture" alt= "Profile Picture"> </img>
+    <h6 class="right">source:https://randomuser.me </h6>
+    <h5> Name: {{userName}}
+      <p> </p>
+        Country of Origin: {{userCountry}}
+      <p> </p>
+        Birthdate: {{userBirthdate}}
+      <p> </p>
+        Age: {{userAge}}
+      <p> </p>
+        Email Address: <a v-bind:href="'mailto:'+ userEmail"> {{userEmail}} </a>
+      <p> </p>
+  </div>
   </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
   </h5>
@@ -53,6 +55,8 @@
   <h6>Created by deschrei</h6>
 </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/profile.app.js"></script>
 
 </body>
 </html>
