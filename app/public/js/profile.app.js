@@ -1,5 +1,5 @@
 var app = new Vue({
-  el: '#userProfle',
+  el: '#userProfile',
   data: {
     userPicture: '',
     userName: '',
@@ -14,6 +14,11 @@ var app = new Vue({
 
   },
   methods: {
+    formatDate(d) {
+      return moment(d).format("dddd, MMMM Do YYYY");
+    },
+
+
     fetchUser: function(){
       fetch('https://randomuser.me/api/')
       .then(response => response.json())
@@ -26,6 +31,7 @@ var app = new Vue({
         this.userBirthdate = userData.dob.date;
         this.userAge = userData.dob.age;
         this.userEmail = userData.email;
+
       });
     }
   }
