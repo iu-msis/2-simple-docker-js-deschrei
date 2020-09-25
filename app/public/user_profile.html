@@ -30,10 +30,10 @@
     </div>
   </nav>
 
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
-  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 profile">
-  <div id="userProfile">
 
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 profile">
+  <div id="userProfile">
+    <form v-on:submit.prevent="fetchUser">
     <img v-bind:src="userPicture" alt= "Profile Picture"> </img>
     <h6 class="right">source:https://randomuser.me </h6>
     <h5> Name: {{userName}}
@@ -46,6 +46,8 @@
       <p> </p>
         Email Address: <a v-bind:href="'mailto:'+ userEmail"> {{userEmail}} </a>
       <p> </p>
+      <button type="submit" class="btn btn-secondary">Next User</button>
+    </form>
   </div>
   </div>
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
