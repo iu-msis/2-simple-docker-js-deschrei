@@ -4,13 +4,13 @@
   <title>Book List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/site.css">
+    <link rel="icon" href="data:;base64,=">
 </head>
 <header>
   <h1>Website Title<h1>
 </header>
 
 <body>
-  <div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -30,109 +30,49 @@
     </div>
   </nav>
 
-<div>
+
 <h2>Book List</h2>
 
-<table class="table" id="booktable">
+<div id="comment">
+<table class="table" id="commentTable">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Author(s)</th>
-      <th>Year published</th>
-      <th>Publisher</th>
-      <th>Page Count</th>
-      <th>MSRP</th>
+      <th>Id</th>
+      <th>Comment</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>The Hunger Games</td>
-      <td>Suzanne Collins</td>
-      <td>2008</td>
-      <td>Scholastic</td>
-      <td>374</td>
-      <td>$32.22</td>
-    </tr>
-    <tr>
-      <td>Harry Potter and the Order of the Phoenix</td>
-      <td>J.K. Rowling</td>
-      <td>2004</td>
-      <td>Scholastic</td>
-      <td>870</td>
-      <td>$22.33</td>
-    </tr>
-    <tr>
-      <td>The Giving Tree</td>
-      <td>Shel Silverstein</td>
-      <td>1964</td>
-      <td>HarperCollins</td>
-      <td>64</td>
-      <td>$33.44</td>
-    </tr>
-
-    <tr>
-      <td>The Cat in the Hat</td>
-      <td>Dr. Seuss</td>
-      <td>1985</td>
-      <td>Random House Books</td>
-      <td>61</td>
-      <td>$15.89</td>
-    </tr>
-
-    <tr>
-      <td>The Phantom Tollbooth</td>
-      <td>Norton Juster</td>
-      <td>1961</td>
-      <td>Random House</td>
-      <td>256</td>
-      <td>$18.19</td>
+  <tbody id="commentTableBody">
+    <tr v-for="comment in commentList">
+      <td>{{comment.id}}</td>
+      <td>{{comment.commentText}}</td>
     </tr>
   </tbody>
 </table>
-  <img src="img/book.jpg" alt="book picture" class="resize"></img>
-  <h6 class="left">source:https://unsplash.com/photos/eMP4sYPJ9x0</h6>
 
-    <h2>Add Book to List</h2>
-    <div>
-    <form>
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" >
-      <div class="form-group">
-        <label for="title">Add Book Title</label>
-        <input type="text" class="form-control" id="title">
-      </div>
-      <div class="form-group">
-        <label for="author">Add Author(s)</label>
-        <input type="text" class="form-control" id="author">
-      </div>
-      <div class="form-group">
-        <label for="year_published">Add Year Published</label>
-        <input type="month" class="form-control" id="year_published">
-      </div>
-      <div class="form-group">
-        <label for="publisher">Add Publisher</label>
-        <input type="text" class="form-control" id="publisher">
-      </div>
-      <div class="form-group">
-        <label for="pages">Add Page Count</label>
-        <input type="number" class="form-control" id="pages">
-      </div>
-      <div class="form-group">
-        <label for="MSRP">Add MSRP</label>
-        <input type="number" class="form-control" id="MSRP">
-      </div>
-      <button type="submit" class="btn btn-primary">Add Book</button>
-    </div>
-    </form>
-    </div>
+
+
+<form method="post" v-on:submit.prevent="createComment" id="newCommentForm">
+  <div>
+    <label for="commentText">New Comment</label>
+    <input type="text" v-model="newComment.commentText" class="form-control" id="commentText">
+  </div>
+    <button type="submit" class="btn btn-primary" id="submitNewComment">Submit Comment</button>
+</form>
 </div>
 
 
 
-  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/comments.app.js"></script>
   <script src="js/tablesort.min.js"></script>
   <script>
     //Tablesort plugin from http://tristen.ca/tablesort/demo/ //
-    new Tablesort(document.getElementById('booktable'));
+    new Tablesort(document.getElementById('commentTable'));
   </script>
 </body>
 <footer id="footer">

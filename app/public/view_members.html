@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- Source: https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--jQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+    <!--Compiled and minified JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>OCFR - Home</title>
+  </head>
+
+  <body>
+    <div class="container container-fluid">
+      <header class="row">
+      </header>
+      <!-- NAVBAR -->
+      <!-- Source: https://getbootstrap.com/docs/4.0/components/navbar/ -->
+      <nav class="navbar navbar-expand-lg navbar-color">
+        <!--<a class="navbar-brand" href="img/OCFRLogo.png">INSERT IMAGE HERE</a> -->
+        <!-- Source: https://www.oconeecounty.com/227/Fire-Rescue -->
+        <!-- Source: https://www.w3schools.com/tags/att_img_width.asp -->
+        <a class="navbar-brand" href="https://www.oconeecounty.com/227/Fire-Rescue"><img src="img/OCFRLogo.png" alt="Oconee County Fire Rescue Logo" width="50" height="50"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Change the active and insert page links for subsequent nav links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Member Records
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="view_members.html">View</a>
+                <a class="dropdown-item" href="#">Update</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Certifications
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="view_certifications.html">View</a>
+                <a class="dropdown-item" href="#">Update</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reports
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="expired_certifications.html">Expired Certifications</a>
+                <a class="dropdown-item" href="#">Members by Station & Radio Number</a>
+              </div>
+            </li>
+          <!--  <form class="form-inline my-2 my-lg-0">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login (Are we doing this?)</button>
+            </form> -->
+          </ul>
+        </div>
+      </nav>
+
+    <div id="members">
+      <main class="row">
+          <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">View Member Records</h1>
+          <!-- Search form -->
+<form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+    aria-label="Search">
+</form>
+        <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Member First Name</th>
+              <th scope="col">Member Last Name</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">End Date</th>
+              <th scope="col">Edit Table</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" colspan="5" class="placeholder">Firefighter I</th>
+            </tr>
+            <tr v-for="member in memberList">
+              <td scope="row">{{member.firstName}}</td>
+              <td>{{member.lastName}}</td>
+              <td>{{member.startDate}}</td>
+              <td>{{member.endDate}}</td>
+              <td><button type="button" class="btn btn-primary">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="button_group">
+            <a href="#" class="view_buttons">Add New</a>
+        </div>
+        <div class="button_group">
+            <a href="#" class="view_buttons">Delete</a>
+        </div>
+      </main>
+      <footer class="row">
+          <p class="footer_words"> &#169; Oconee County Fire Department</p>
+      </footer>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- Source: https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/view_members.app.js"></script>
+  </body>
+</html>
